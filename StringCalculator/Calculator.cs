@@ -8,9 +8,24 @@ namespace StringCalculator
 {
     class Calculator
     {
+        private int[] Split(string numbers)
+        {
+            string delimiter = numbers.Substring(2, 1);
+            numbers = numbers.Substring(numbers.IndexOf("\n"));
+            int[] arrayNumbers = numbers.Split(delimiter.ToCharArray()).Select(x => int.Parse(x)).ToArray();
+            return arrayNumbers;
+        }
         private int CalculateSum(string numbers)
         {
-            var arrayNumbers = numbers.Split(',','.', '\n').Select(x => int.Parse(x)).ToArray();
+            int[] arrayNumbers;
+            if (numbers.Contains("//"))
+            {
+                arrayNumbers = Split(numbers);
+            }
+            else
+            {
+                arrayNumbers = numbers.Split(',', '.', '\n').Select(x => int.Parse(x)).ToArray();
+            }
             int sum = 0;
             for (int i = 0; i < arrayNumbers.Length; i++)
             {

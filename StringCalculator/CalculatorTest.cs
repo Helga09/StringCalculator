@@ -24,7 +24,7 @@ namespace StringCalculator
         [Test]
         public static void TwoParameter()
         {
-            Assert.AreEqual(3, c.Add("1,2"));
+            Assert.AreEqual(3, c.Add("//,\n1,2"));
         }
         [Test]
         public static void DifferentSeparators()
