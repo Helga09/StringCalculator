@@ -10,7 +10,7 @@ namespace StringCalculator
     {
         private int CalculateSum(string numbers)
         {
-            var arrayNumbers = numbers.Split(',').Select(x => int.Parse(x)).ToArray();
+            var arrayNumbers = numbers.Split(',','.', '\n').Select(x => int.Parse(x)).ToArray();
             int sum = 0;
             for (int i = 0; i < arrayNumbers.Length; i++)
             {

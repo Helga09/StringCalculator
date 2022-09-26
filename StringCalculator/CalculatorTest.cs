@@ -26,5 +26,10 @@ namespace StringCalculator
         {
             Assert.AreEqual(3, c.Add("1,2"));
         }
+        [Test]
+        public static void DifferentSeparators()
+        {
+            Assert.AreEqual(6, c.Add("1\n2,3"));
+        }
     }
 }
