@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace StringCalculator
 {
@@ -14,22 +16,28 @@ namespace StringCalculator
         [Test]
         public static void EmptyString()
         {
-            Assert.AreEqual(0, c.Add(""));
+            NUnit.Framework.Assert.AreEqual(0, c.Add(""));
         }
         [Test]
         public static void OneParameter()
-        { 
-            Assert.AreEqual(5, c.Add("5"));
+        {
+            NUnit.Framework.Assert.AreEqual(5, c.Add("5"));
         }
         [Test]
         public static void TwoParameter()
         {
-            Assert.AreEqual(3, c.Add("//,\n1,2"));
+            NUnit.Framework.Assert.AreEqual(3, c.Add("//,\n1,2"));
         }
         [Test]
         public static void DifferentSeparators()
         {
-            Assert.AreEqual(6, c.Add("1\n2,3"));
+            NUnit.Framework.Assert.AreEqual(6, c.Add("1\n2,3"));
+        }
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException), "Negatives not allowed: -1Negatives not allowed: -2")]
+        public static void NegativeNumbers()
+        {
+            c.Add("//,\n-1,-2");
         }
     }
 }

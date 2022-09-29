@@ -15,6 +15,30 @@ namespace StringCalculator
             int[] arrayNumbers = numbers.Split(delimiter.ToCharArray()).Select(x => int.Parse(x)).ToArray();
             return arrayNumbers;
         }
+        private int Sum(int[] arrayNumbers)
+        {
+            int sum = 0;
+            for (int i = 0; i < arrayNumbers.Length; i++)
+            {
+                try
+                {
+                    if (arrayNumbers[i] < 0)
+                    {
+                        throw new InvalidOperationException("Negatives not allowed: " + arrayNumbers[i]);
+                    }
+                    else
+                    {
+                        sum += arrayNumbers[i];
+                    }
+                }
+                catch (InvalidOperationException ex)
+                {
+                    _ = ex.Message;
+                }
+            }
+            return sum;
+        }
+
         private int CalculateSum(string numbers)
         {
             int[] arrayNumbers;
@@ -26,14 +50,11 @@ namespace StringCalculator
             {
                 arrayNumbers = numbers.Split(',', '.', '\n').Select(x => int.Parse(x)).ToArray();
             }
-            int sum = 0;
-            for (int i = 0; i < arrayNumbers.Length; i++)
-            {
-                sum += arrayNumbers[i];
-            }
-            return sum;
+            
+            return Sum(arrayNumbers);
         }
 
+       
         public int Add(string numbers)
         {
              if(numbers=="" || numbers == null)
