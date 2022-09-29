@@ -51,5 +51,11 @@ namespace StringCalculator
         {
             NUnit.Framework.Assert.AreEqual(2, c.Add("//,\n2,1001"));
         }
+
+        [Test]
+        public static void LongSeparators()
+        {
+            NUnit.Framework.Assert.AreEqual(6, c.Add("//[***]\n1***2***3"));
+        }
     }
 }

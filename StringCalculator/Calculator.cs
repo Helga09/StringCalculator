@@ -10,9 +10,10 @@ namespace StringCalculator
     {
         private int[] Split(string numbers)
         {
-            string delimiter = numbers.Substring(2, 1);
+           string delimiter = numbers.Substring(numbers.IndexOf("//"), numbers.IndexOf("\n")- numbers.IndexOf("//"));
             numbers = numbers.Substring(numbers.IndexOf("\n"));
-            int[] arrayNumbers = numbers.Split(delimiter.ToCharArray()).Select(x => int.Parse(x)).ToArray();
+            String [] array = numbers.Split(delimiter.ToCharArray());
+            int[] arrayNumbers = Array.ConvertAll(array, s => int.TryParse(s, out var x) ? x : -1);
             return arrayNumbers;
         }
         private int Sum(int[] arrayNumbers)
@@ -26,7 +27,7 @@ namespace StringCalculator
                     {
                         throw new InvalidOperationException("Negatives not allowed: " + arrayNumbers[i]);
                     }
-                    else if(arrayNumbers[i] > 1000) {}
+                    else if(arrayNumbers[i] > 1000) { }
                     else
                     {
                         sum += arrayNumbers[i];
