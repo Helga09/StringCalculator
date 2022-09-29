@@ -26,6 +26,7 @@ namespace StringCalculator
                     {
                         throw new InvalidOperationException("Negatives not allowed: " + arrayNumbers[i]);
                     }
+                    else if(arrayNumbers[i] > 1000) {}
                     else
                     {
                         sum += arrayNumbers[i];
