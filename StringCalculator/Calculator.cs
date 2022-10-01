@@ -10,7 +10,7 @@ namespace StringCalculator
     {
         private int[] Split(string numbers)
         {
-           string delimiter = numbers.Substring(numbers.IndexOf("//"), numbers.IndexOf("\n")- numbers.IndexOf("//"));
+            string delimiter = numbers.Substring(numbers.IndexOf("//"), numbers.IndexOf("\n")- numbers.IndexOf("//"));
             numbers = numbers.Substring(numbers.IndexOf("\n"));
             String [] array = numbers.Split(delimiter.ToCharArray());
             int[] arrayNumbers = Array.ConvertAll(array, s => int.TryParse(s, out var x) ? x : -1);
