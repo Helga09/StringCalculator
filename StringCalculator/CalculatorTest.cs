@@ -63,5 +63,10 @@ namespace StringCalculator
         {
             NUnit.Framework.Assert.AreEqual(6, c.Add("//[*][%]\n1*2%3"));
         }
+        [Test]
+        public static void LongMultipleDelimiters()
+        {
+            NUnit.Framework.Assert.AreEqual(6, c.Add("//[***][%%]\n1*2%3"));
+        }
     }
 }
