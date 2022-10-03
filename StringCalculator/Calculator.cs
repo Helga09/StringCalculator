@@ -16,6 +16,7 @@ namespace StringCalculator
             int[] arrayNumbers = Array.ConvertAll(array, s => int.TryParse(s, out var x) ? x : -1);
             return arrayNumbers;
         }
+
         private int Sum(int[] arrayNumbers)
         {
             int sum = 0;
@@ -55,11 +56,10 @@ namespace StringCalculator
             
             return Sum(arrayNumbers);
         }
-
-       
+               
         public int Add(string numbers)
         {
-             if(numbers=="" || numbers == null)
+             if((numbers=="") || (numbers == null))
              {
                  return 0;
              }
